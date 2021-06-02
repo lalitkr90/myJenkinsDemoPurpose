@@ -7,10 +7,10 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-        stage('test'){
+        stage('test') {
           steps {
              echo 'This is under test stage'
           } 
-      }
+       }
     }
 }
