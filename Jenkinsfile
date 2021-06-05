@@ -24,7 +24,7 @@ pipeline {
         stage('test') {
             when{
                 expression {
-                    param.executeTest
+                    params.executeTest
                 }  
             }  
           steps {
@@ -34,7 +34,7 @@ pipeline {
         stage('deploy'){
             steps {
                 echo "This is first variable credential printing ${SERVER_CREDENTIALS}"
-                echo "Deploying with parameters ${param.VERSIONS}"
+                echo "Deploying with parameters ${params.VERSIONS}"
                // withCredetials(SERVER_CREDENTIALS){
                 //}
             } 
