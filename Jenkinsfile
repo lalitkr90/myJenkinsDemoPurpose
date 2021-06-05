@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
     environment{
@@ -13,12 +14,19 @@ pipeline {
         booleanParam(name: 'executeTest', defaultValue: true, description:'')
     }
     stages {
+        stage('init'){
+            steps{
+                script{
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage('build') {
-            steps {
-                echo 'This is inside build stage'
-                echo 'this is another way of printing'
+            steps {               
+               gv.buildApp()
+               echo 'this is another way of printing'
                // echo "Printing environment variable ${NEW_VERSION}"
-              //  sh "mvn install"
+               // sh "mvn install"
             }
         }
         stage('test') {
@@ -28,6 +36,7 @@ pipeline {
                 }  
             }  
           steps {
+              gv.testApp()
              echo 'This is under test stage'
           } 
        }
