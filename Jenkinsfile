@@ -22,11 +22,13 @@ pipeline {
             }
         }
         stage('build') {
-            steps {               
+            steps { 
+                script{
                gv.buildApp()
                echo 'this is another way of printing'
                // echo "Printing environment variable ${NEW_VERSION}"
                // sh "mvn install"
+                }     
             }
         }
         stage('test') {
@@ -36,8 +38,10 @@ pipeline {
                 }  
             }  
           steps {
+              script{
               gv.testApp()
              echo 'This is under test stage'
+              }    
           } 
        }
         stage('deploy'){
