@@ -31,7 +31,7 @@ pipeline {
              echo 'This is under test stage'
           } 
        }
-        stage{'deploy'}{
+        stage('deploy'){
             steps {
                 echo "This is first variable credential printing ${SERVER_CREDENTIALS}"
                 echo "Deploying with parameters ${param.VERSIONS}"
