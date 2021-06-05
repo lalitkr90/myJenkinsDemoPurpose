@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'This is inside build stage'
                 echo 'this is another way of printing'
-                echo "Printing environment variable ${NEW_VERSION}"
+               // echo "Printing environment variable ${NEW_VERSION}"
                 sh "mvn install"
             }
         }
