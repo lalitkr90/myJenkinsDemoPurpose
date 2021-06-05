@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        New_VRESION = 1.3.0
+        NEW_VRESION = 1.3.0
         SERVER_CREDENTIALS = credentials('lalit')
     }
     tools{
